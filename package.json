@@ -1,0 +1,16 @@
+{
+  "name": "timestamp-microservice",
+  "version": "0.1.0",
+  "description": "This is a timestamp microservice for FreeCodeCamp.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.4",
+    "faucet": "0.0.1",
+    "tape": "^4.5.1"
+  }
+}
