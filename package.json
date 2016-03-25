@@ -4,7 +4,7 @@
   "description": "This is a timestamp microservice for FreeCodeCamp.",
   "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "test": "faucet test/*.js"
   },
   "author": "",
   "license": "ISC",
