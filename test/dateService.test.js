@@ -17,3 +17,31 @@ test('identifies unix date format', function(t) {
     dateService.dateFormat.UNIX);
   t.end();
 });
+
+test('rejects natural date of Feb 29th on non-leap year', function(t) {
+  t.notOk(dateService.parseNaturalDate('February 29, 2015'));
+  t.end();
+});
+
+test('parses Feb 29th on leap year', function(t) {
+  t.equal(dateService.parseNaturalDate('February 29, 2016').getTime(),
+    new Date(2016, 1, 29).getTime());
+  t.end();
+});
+
+test('parses valid natural date', function(t) {
+  t.equal(dateService.parseNaturalDate('December 31, 1994').getTime(),
+    new Date(1994, 11, 31).getTime());
+  t.end();
+});
+
+test('parses month without case sensitivity', function(t) {
+  t.equal(dateService.parseNaturalDate('apRiL 3, 2000').getTime(),
+    new Date(2000, 3, 3).getTime());
+  t.end();
+});
+
+test('identifies invalid natural date', function(t) {
+  t.notOk(dateService.parseNaturalDate('foo'));
+  t.end();
+});
