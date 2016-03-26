@@ -10,11 +10,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.13.4",
     "faucet": "0.0.1",
     "tape": "^4.5.1"
   },
   "engines": {
     "node": "4.2.2"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
