@@ -4,6 +4,7 @@
   "description": "This is a timestamp microservice for FreeCodeCamp.",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "faucet test/*.js"
   },
   "author": "",
@@ -12,5 +13,8 @@
     "express": "^4.13.4",
     "faucet": "0.0.1",
     "tape": "^4.5.1"
+  },
+  "engines": {
+    "node": "4.2.2"
   }
 }
