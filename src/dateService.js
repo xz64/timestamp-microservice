@@ -62,6 +62,10 @@ var dateService = {
     var year = +tokens[2];
     var day = this.getDay(year, month, tokens[1]);
     return day ? new Date(year, month, day) : null;
+  },
+  parseUnixTimestamp: function parseUnixTimestamp(str) {
+    var timestamp = +str;
+    return new Date(timestamp * 1000);
   }
 };
 

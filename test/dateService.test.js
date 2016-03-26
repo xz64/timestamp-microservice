@@ -45,3 +45,15 @@ test('identifies invalid natural date', function(t) {
   t.notOk(dateService.parseNaturalDate('foo'));
   t.end();
 });
+
+test('parses unix timestamp', function(t) {
+  t.equal(dateService.parseUnixTimestamp('1457829351').getTime(),
+    new Date(Date.UTC(2016, 2, 13, 0, 35, 51)).getTime());
+  t.end();
+});
+
+test('parses negative unix timestamp', function(t) {
+  t.equal(dateService.parseUnixTimestamp('-25393718').getTime(),
+    new Date(Date.UTC(1969, 2, 13, 2, 11, 22)).getTime());
+  t.end();
+});
