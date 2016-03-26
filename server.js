@@ -1,7 +1,7 @@
 var express = require('express');
 var dateService = require('./src/dateService');
 
-var port = +process.env.PORT;
+var port = +process.env.PORT || 8080;
 var app = express();
 
 app.get('*', function(req, res) {
