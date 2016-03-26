@@ -18,12 +18,12 @@ var dateService = {
     DECEMBER: 11
   },
   getMonth: function getMonth(str) {
-    return this.months[str] || null;
+    return this.months[str];
   },
   getDay: function getDay(year, month, str) {
     var day = +str;
     // covers January, March, May, July, August, October, and December
-    if(isNaN(str) || !month || day < 1 || day > 31) { 
+    if(isNaN(str) || isNaN(month) || day < 1 || day > 31) { 
       return null;
     }
 
@@ -61,11 +61,24 @@ var dateService = {
     var month = this.getMonth(tokens[0].toUpperCase());
     var year = +tokens[2];
     var day = this.getDay(year, month, tokens[1]);
+    console.log(year, month, day);
     return day ? new Date(year, month, day) : null;
   },
   parseUnixTimestamp: function parseUnixTimestamp(str) {
     var timestamp = +str;
     return new Date(timestamp * 1000);
+  },
+  parseString: function parseString(str) {
+    var dateType = this.getDateFormat(str);
+    if(dateType === this.dateFormat.UNIX) {
+      return this.parseUnixTimestamp(str);
+    }
+    else if(dateType === this.dateFormat.NATURAL) {
+      return this.parseNaturalDate(str);
+    }
+    else {
+      return null;
+    }
   }
 };
 

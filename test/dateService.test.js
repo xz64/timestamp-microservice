@@ -57,3 +57,20 @@ test('parses negative unix timestamp', function(t) {
     new Date(Date.UTC(1969, 2, 13, 2, 11, 22)).getTime());
   t.end();
 });
+
+test('parses numeric string as unix timestamp', function(t) {
+  t.equal(dateService.parseString('-25393718').getTime(),
+    new Date(Date.UTC(1969, 2, 13, 2, 11, 22)).getTime());
+  t.end();
+});
+
+test('parses invalid string as falsy', function(t) {
+  t.notOk(dateService.parseString('-2dfsd5393718'));
+  t.end();
+});
+
+test('parses natural date string', function(t) {
+  t.equal(dateService.parseString('January 26, 1990').getTime(),
+    new Date(1990, 0, 26).getTime());
+  t.end();
+});
