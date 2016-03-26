@@ -17,6 +17,9 @@ var dateService = {
     NOVEMBER: 10,
     DECEMBER: 11
   },
+  monthNames: ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ],
   getMonth: function getMonth(str) {
     return this.months[str];
   },
@@ -78,6 +81,20 @@ var dateService = {
     else {
       return null;
     }
+  },
+  getNaturalString: function getNaturalString(date) {
+    return this.monthNames[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', '
+      + date.getUTCFullYear();
+  },
+  getUnixString: function getUnixString(date) {
+    return Math.floor(date.getTime() / 1000);
+  },
+  getJSON: function getJSON(str) {
+    var date = this.parseString(str);
+    return date ? {
+      unix: this.getUnixString(date),
+      natural: this.getNaturalString(date)
+    } : { unix: null, natural: null };
   }
 };
 

@@ -74,3 +74,21 @@ test('parses natural date string', function(t) {
     new Date(1990, 0, 26).getTime());
   t.end();
 });
+
+test('return null fields in JSON for invalid date', function(t) {
+  t.deepEqual(dateService.getJSON('January 35, 1990'),
+    { unix: null, natural: null });
+  t.end();
+});
+
+test('return null fields in JSON for invalid date', function(t) {
+  t.deepEqual(dateService.getJSON('January 35, 1990'),
+    { unix: null, natural: null });
+  t.end();
+});
+
+test('return JSON object for proper timestamp', function(t) {
+  t.deepEqual(dateService.getJSON('1451616242'),
+    { unix: 1451616242, natural: 'January 1, 2016'})
+  t.end();
+});
