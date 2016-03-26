@@ -4,4 +4,6 @@ This is a timestamp microservice for FreeCodeCamp.
 
 #Instructions
 
-`node server.js`
+`PORT=8080 node server.js`
+
+You can replace 8080 with your port number of choice.
