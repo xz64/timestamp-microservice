@@ -92,3 +92,9 @@ test('return JSON object for proper timestamp', function(t) {
     { unix: 1451616242, natural: 'January 1, 2016'})
   t.end();
 });
+
+test('return null fields in JSON for empty string', function(t) {
+  t.deepEqual(dateService.getJSON(''),
+     { unix: null, natural: null });
+  t.end();
+});

@@ -49,7 +49,7 @@ var dateService = {
     return day;
   },
   getDateFormat: function getDateFormat(str) {
-    if(!isNaN(str)) {
+    if(str !== '' && !isNaN(str)) {
       return this.dateFormat.UNIX;
     }
     else if(str.match(/\w+ \d+, \d{4}/)) {
